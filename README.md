@@ -50,7 +50,9 @@ This can be achieved by defining the log-driver in `/etc/docker/daemon.json`. Fo
 For custom Fluentd configuration, you can either mount a directory on `/fluentd/etc/conf.d` or individual files under it, e.g. to `/fluentd/etc/conf.d/50-mysettings.conf`.  
   
 A simple setup should need no user-defined configuration files.  
+
 If you have a small number of configuration files that you want to use, it can be more straightforward to mount individual file(s) under `conf.d`.  
+
 If you mount a directory on `conf.d`, it will be populated with the default configuration. Existing files won't be overwritten. If you want to disable individual configuration files
 , you need to add suffix `.disabled` in their name.
 

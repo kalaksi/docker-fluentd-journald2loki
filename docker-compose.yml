@@ -6,7 +6,7 @@ services:
     cap_drop:
       - ALL
     cap_add:
-      - CAP_DAC_OVERRIDE
+      - DAC_OVERRIDE
     environment:
       LOKI_URL: https://127.0.0.1:3100
       # Fill credentials if necessary. Leave empty if not needed.
