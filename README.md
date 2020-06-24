@@ -7,7 +7,13 @@
 This container runs Fluentd which ingests journald/systemd logs (including container logs) and sends them to Grafana Loki.
 Configuration is simple and it's possible to get things going with only a few variables.  
   
-The FluentD installation includes these additional plugins: `fluent-plugin-systemd`, `fluent-plugin-grafana-loki`, `fluent-plugin-rewrite-tag-filter` and `fluent-plugin-fields-parser`.
+The FluentD installation includes these additional plugins:  
+- `fluent-plugin-systemd`
+- `fluent-plugin-grafana-loki`
+- `fluent-plugin-rewrite-tag-filter`
+- `fluent-plugin-fields-parser`
+- `fluent-plugin-grok-parser`
+- `fluent-plugin-multi-format-parser`
 
 ## Why use this container?
 **Simply put, this container has been written with simplicity and security in mind.**
