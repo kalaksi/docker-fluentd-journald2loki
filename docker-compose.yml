@@ -7,6 +7,8 @@ services:
       - ALL
     cap_add:
       - DAC_OVERRIDE
+      - CHOWN
+      - FOWNER
     environment:
       LOKI_URL: https://127.0.0.1:3100
       # Fill credentials if necessary. Leave empty if not needed.
