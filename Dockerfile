@@ -17,10 +17,11 @@ ENV CONTAINER_NAME_TAG_REGEX="/^([^_]+)_([^_]+)/"
 # ... and those matches can then be used in the tag template. First match would be stored in $1 and so on.
 ENV CONTAINER_NAME_TAG_TEMPLATE="container.\$1.\$2"
 
-#Vversions
+# Versions
 ARG FLUENTD_SYSTEMD_VERSION="1.0.1"
 ARG FLUENTD_LOKI_VERSION="1.2.12"
 ARG FLUENTD_REWRITETAG_VERSION="2.3.0"
+ARG FLUENTD_FIELDSPARSER_VERSION="0.1.2"
 
 USER root
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -28,6 +29,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     gem install fluent-plugin-systemd -v "$FLUENTD_SYSTEMD_VERSION" && \
     gem install fluent-plugin-grafana-loki -v "$FLUENTD_LOKI_VERSION" && \
     gem install fluent-plugin-rewrite-tag-filter -v "$FLUENTD_REWRITETAG_VERSION" && \
+    gem install fluent-plugin-fields-parser -v "$FLUENTD_FIELDSPARSER_VERSION" && \
     gem sources --clear-all && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -y \
       build-essential ruby-dev && \
