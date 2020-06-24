@@ -21,10 +21,9 @@ services:
     volumes:
       # Possibly your configuration file
       # - ./50-mysettings.conf:/fluentd/etc/conf.d/50-mysettings.conf:ro
-      #
       # ... or a whole directory
       # - fluentd-config:/fluentd/etc/conf.d:ro
-      #
+
       # Mounts needed for systemd/journald
       - /etc/machine-id:/etc/machine-id:ro
       - /var/run/systemd/journal/:/var/run/systemd/journal/:ro

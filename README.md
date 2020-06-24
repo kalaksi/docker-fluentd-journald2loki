@@ -4,16 +4,15 @@
 - [GitHub repository](https://github.com/kalaksi/docker-fluentd-journald2loki)
 
 ## What is this container for?
-This container runs Fluentd which is configured to ingest journald/systemd (including container/Docker logs!) logs and send them to Loki (a.k.a. Grafana Loki).  
-Grafana also has a similar container, but the recent version (1.5.0) has removed systemd support and the older version, that does support it, isn't updated.  
-I also wanted a more streamlined setup experience, so this container provides a boilerplate configuration to get things going quickly with Loki using just a few variables.
+This container runs Fluentd which ingests journald/systemd logs (including container logs) and sends them to Grafana Loki.
+Configuration is simple and it's possible to get things going with only a few variables.  
   
-The installation includes these additional FluentD-plugins: `fluent-plugin-systemd`, `fluent-plugin-grafana-loki` and `fluent-plugin-rewrite-tag-filter`.
+The FluentD installation includes these additional plugins: `fluent-plugin-systemd`, `fluent-plugin-grafana-loki` and `fluent-plugin-rewrite-tag-filter`.
 
 ## Why use this container?
 **Simply put, this container has been written with simplicity and security in mind.**
 
-Surprisingly, _many_ community containers run unnecessarily with root privileges by default and don't provide help for dropping unneeded CAPabilities either.
+Many community containers run unnecessarily with root privileges by default and don't provide help for dropping unneeded CAPabilities either.
 On top of that, overly complex shell scripts, monolithic designs and unofficial base images make it harder to verify the source among other issues.  
 
 To remedy the situation, these images have been written with security, simplicity and overall quality in mind.
@@ -36,7 +35,7 @@ See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
 
 ## Configuration
 ### General
-See ```Dockerfile``` and ```docker-compose.yml``` (<https://github.com/kalaksi/docker-fluentd-journald2loki>) for usable environment variables. Variables that are left empty will use default values.  
+See ```Dockerfile``` and ```docker-compose.yml``` (<https://github.com/kalaksi/docker-fluentd-journald2loki>) for usable environment variables.
 
 ### Logs from Docker
 You should change Docker's log backend from JSON-file based to journald.
