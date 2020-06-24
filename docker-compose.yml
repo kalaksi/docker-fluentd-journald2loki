@@ -1,0 +1,34 @@
+version: '2'
+services:
+  fluentd:
+    image: kalaksi/fluentd-journald2loki
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    cap_add:
+      - CAP_DAC_OVERRIDE
+    environment:
+      # If your container names are simple, like `fluentd` or `a1b2c3`, uncomment the next variables.
+      # The default values (visible in docker-compose.yml) assume you're managing your containers with
+      # docker-compose or just use similar names like `logging_fluentd_1` or `logging_fluentd`.
+      #
+      # CONTAINER_NAME_MATCH: '/^(.*)$/'
+      # CONTAINER_TAG_TEMPLATE: 'container.$1'
+    volumes:
+      # Possibly your configuration file
+      # - ./50-mysettings.conf:/fluentd/etc/conf.d/50-mysettings.conf:ro
+      #
+      # ... or a whole directory
+      # - fluentd-config:/fluentd/etc/conf.d:ro
+      #
+      # Mounts needed for systemd/journald
+      - /etc/machine-id:/etc/machine-id:ro
+      - /var/run/systemd/journal/:/var/run/systemd/journal/:ro
+      - /var/log/journal:/var/log/journal:ro
+      - /dev/log:/dev/log:ro
+    # Make sure we won't have circular logging if default log driver is set to fluentd.
+    logging:
+      driver: json-file
+
+volumes:
+  fluentd-config: {}
