@@ -24,6 +24,7 @@ ARG FLUENTD_REWRITETAG_VERSION="2.3.0"
 ARG FLUENTD_FIELDSPARSER_VERSION="0.1.2"
 ARG FLUENTD_MULTIFORMATPARSER_VERSION="1.0.0"
 ARG FLUENTD_GROKPARSER_VERSION="2.6.1"
+ARG FLUENTD_RECORDMODIFIER_VERSION="2.1.0"
 
 USER root
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -34,6 +35,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     gem install fluent-plugin-fields-parser -v "$FLUENTD_FIELDSPARSER_VERSION" && \
     gem install fluent-plugin-multi-format-parser -v "$FLUENTD_MULTIFORMATPARSER_VERSION" && \
     gem install fluent-plugin-grok-parser -v "$FLUENTD_GROKPARSER_VERSION" && \
+    gem install fluent-plugin-record-modifier -v "$FLUENTD_RECORDMODIFIER_VERSION" && \
     gem sources --clear-all && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -y \
       build-essential ruby-dev && \
