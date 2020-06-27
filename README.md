@@ -60,7 +60,7 @@ A simple setup should need no user-defined configuration files.
 If you have a small number of configuration files that you want to use, it can be more straightforward to mount individual file(s) under `conf.d`.  
 
 If you mount a directory on `conf.d`, it will be populated with the default configuration. Existing files won't be overwritten. If you want to disable individual configuration files
-, you need to add suffix `.disabled` in their name.
+, you need to add suffix `.disabled` in their name. Alternatively, you could comment out or use an empty configuration file.
 
 ## Development
 
