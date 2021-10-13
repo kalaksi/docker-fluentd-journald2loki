@@ -16,7 +16,7 @@ services:
       LOKI_PASSWORD: 
 
       # If your container names are simple, like `fluentd` or `a1b2c3`, uncomment the next variables.
-      # The default values (visible in docker-compose.yml) assume you're managing your containers with
+      # The default values (visible in Dockerfile) assume you're managing your containers with
       # docker-compose or just use similar names like `logging_fluentd_1` or `logging_fluentd`.
       # CONTAINER_NAME_MATCH: '/^(.*)$/'
       # CONTAINER_TAG_TEMPLATE: 'container.$1'
