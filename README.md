@@ -1,6 +1,7 @@
 
 ## Repositories
-- [Docker Hub repository](https://hub.docker.com/r/kalaksi/fluentd-journald2loki/)
+- [GitLab repository](https://gitlab.com/kalaksi-containers/fluentd-journald2loki/) (image: `registry.gitlab.com/kalaksi-containers/fluentd-journald2loki`)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/fluentd-journald2loki/) (image: `docker.io/kalaksi/fluentd-journald2loki`)
 - [GitHub repository](https://github.com/kalaksi/docker-fluentd-journald2loki)
 
 ## What is this container for?
@@ -23,16 +24,17 @@ On top of that, overly complex shell scripts, monolithic designs and unofficial 
 
 To remedy the situation, these images have been written with security, simplicity and overall quality in mind.
 
-|Requirement              |Status|Details|
-|-------------------------|:----:|-------|
-|Don't run as root        |❌    | Can be run without root, but root is required if you want to use systemd/journald.|
-|Official base image      |✅    | |
-|Drop extra CAPabilities  |✅    | See ```docker-compose.yml``` |
-|No default passwords     |✅    | No static default passwords. That would make the container insecure by default. |
-|Support secrets-files    |⚠     | Not at the moment, but you can still keep secrets directly in the configuration files instead of variables.|
-|Handle signals properly  |✅    | |
-|Simple Dockerfile        |✅    | No overextending the container's responsibilities. And keep everything in the Dockerfile if reasonable. |
-|Versioned tags           |✅    | Offer versioned tags for stability.|
+|Requirement                |Status|Details|
+|---------------------------|:----:|-------|
+|Don't run as root          |❌    | Can be run without root, but root is required if you want to use systemd/journald.|
+|Transparent build process  |✅    | For verifying that the container matches the code. See GitLab CI. |
+|Official base image        |✅    | |
+|Drop extra CAPabilities    |✅    | See ```docker-compose.yml``` |
+|No default passwords       |✅    | No static default passwords. That would make the container insecure by default. |
+|Support secrets-files      |⚠     | Not at the moment, but you can still keep secrets directly in the configuration files instead of variables.|
+|Handle signals properly    |✅    | |
+|Simple Dockerfile          |✅    | No overextending the container's responsibilities. And keep everything in the Dockerfile if reasonable. |
+|Versioned tags             |✅    | Offer versioned tags for stability.|
 
 ## Supported tags
 See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
