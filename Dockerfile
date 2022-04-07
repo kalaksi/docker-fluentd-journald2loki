@@ -2,7 +2,7 @@
 # This work is licensed under the terms of the MIT license. For a copy, see <https://opensource.org/licenses/MIT>.
 
 # Debian base image is required for fluent-plugin-systemd since it has the necessary systemd libraries.
-FROM fluentd:v1.9.1-debian-1.0
+FROM fluentd:v1.14.0-debian-1.0
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 
