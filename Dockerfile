@@ -2,7 +2,7 @@
 # This work is licensed under the terms of the MIT license. For a copy, see <https://opensource.org/licenses/MIT>.
 
 # Debian base image is required for fluent-plugin-systemd since it has the necessary systemd libraries.
-FROM fluentd:v1.14.0-debian-1.0
+FROM fluentd:v1.16.6-debian-1.0
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 
@@ -28,7 +28,7 @@ ARG FLUENTD_RECORDMODIFIER_VERSION="2.1.1"
 
 USER root
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      build-essential ruby-dev && \
+      libsystemd0 build-essential ruby-dev && \
     gem install fluent-plugin-systemd -v "$FLUENTD_SYSTEMD_VERSION" && \
     gem install fluent-plugin-grafana-loki -v "$FLUENTD_LOKI_VERSION" && \
     gem install fluent-plugin-rewrite-tag-filter -v "$FLUENTD_REWRITETAG_VERSION" && \
